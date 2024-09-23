@@ -1,0 +1,13 @@
+.zoom-animation {
+    transition: transform 0.5s ease;
+    padding: 0 10px; /* Add horizontal padding for gap between images */
+  }
+  
+  .zoom-animation:hover {
+    transform: scale(1.1); /* Zoom in effect */
+  }
+  
+  .slick-slide {
+    padding: 8px; /* Add padding for spacing around images */
+  }
+  
