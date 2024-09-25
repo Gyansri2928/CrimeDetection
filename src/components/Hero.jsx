@@ -16,9 +16,13 @@ const Hero = () => {
         alt='/'
         className='w-full h-full object-cover'
       />
-      <div className='max-w-[1140px] m-auto'>
+
+      {/* Fading Gradient Effect at the Bottom */}
+      <div className='absolute bottom-0 left-0 w-full h-40 bg-gradient-to-t from-black to-transparent z-10'></div>
+      
+      <div className='max-w-[1140px] m-auto z-20'>
         <div className='absolute top-[40%] w-full md:-[50%] max-w-[600px] h-full flex flex-col text-white'>
-          <h1 className='font-bold text-4xl'>
+          <h1 className='font-bold text-4xl hero-text'>
             <Typewriter
               text="Detect Threats Before They Escalate"
               cursorColor="#fff"
@@ -28,18 +32,11 @@ const Hero = () => {
             />
           </h1>
           <h2 className='text-4xl py-4 italic'>Innovative Solutions for Safer Environments</h2>
-          <p>
-            In a world where safety is paramount, Satark harnesses
-            advanced technology to detect potential threats and capture 
-            crucial evidence. Our app takes pictures of suspicious activities,
-            ensuring that culprits can be recognized later. With VigilanceHub,
-            you’re never alone in safeguarding your community.
-          </p>
         </div>
       </div>
 
       {/* Camera Access Box */}
-      <div className='absolute top-[40%] right-20 w-[35%] h-[400px] border-4 border-white bg-black bg-opacity-70 shadow-lg p-6 flex flex-col items-center justify-between'>
+      <div className='absolute top-[40%] right-20 w-[35%] h-[400px] border-4 border-white bg-black bg-opacity-70 shadow-lg p-6 flex flex-col items-center justify-between rounded-lg z-20'>
         {/* Live Indicator */}
         {isCameraActive && (
           <div className='absolute top-4 left-4 flex items-center'>
@@ -53,12 +50,15 @@ const Hero = () => {
         <button
           onClick={handleCameraAccess}
           className={`${
-            isCameraActive ? 'bg-red-600' : 'bg-green-600'
-          } text-white text-lg font-bold py-2 px-6 rounded-lg hover:bg-opacity-80 transition-all duration-300 mt-auto`}
+            isCameraActive ? 'bg-red-600' : 'bg-blue-600'
+          } text-white text-lg font-bold py-3 px-8 rounded-full hover:scale-105 transition-all duration-300 transform ease-in-out`}
         >
           {isCameraActive ? 'Stop Camera' : 'Start Camera'}
         </button>
       </div>
+
+      {/* Gradient Ending the Hero Section */}
+      <div className='absolute bottom-0 w-full h-20 bg-gradient-to-t from-gray-900 to-transparent'></div>
     </div>
   );
 };

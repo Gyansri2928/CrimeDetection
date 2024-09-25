@@ -45,29 +45,30 @@ const Navbar = () => {
       </div>
 
       {/* Main Navigation Bar */}
-      <div className="bg-white shadow py-4">
+      <div className="bg-gray-800 shadow-md py-4">
         <div className="container max-w-[1140px] mx-auto flex justify-between items-center">
           {/* Logo */}
           <div className="flex items-center">
             <Ri24HoursFill size={30} className="mr-2 text-blue-400" />
-            <h1 className="text-xl font-bold">
-              <span className="text-black">Sat</span>
+            <h1 className="text-2xl font-bold text-white">
+              <span className="text-white">Sat</span>
               <span className="text-blue-600">ark</span>
             </h1>
           </div>
 
           {/* Navigation Links */}
           <div className="flex items-center space-x-6">
-            <a href="/" className="text-gray-800 hover:text-blue-600">Home</a>
-            <a href="#city" className="text-gray-800 hover:text-blue-600">City</a>
-            <a href="#crime" className="text-gray-800 hover:text-blue-600">Crime</a>
-            <a href="#cases" className="text-gray-800 hover:text-blue-600">Cases</a>
-            <FaSearch className="ml-4 cursor-pointer text-gray-800 hover:text-blue-600" />
+            <a href="/" className="text-gray-200 hover:text-blue-400 transition-all duration-300">Home</a>
+            <a href="#about" className="text-gray-200 hover:text-blue-400 transition-all duration-300">About</a>
+            <a href="#city" className="text-gray-200 hover:text-blue-400 transition-all duration-300">City</a>
+            <a href="#crime" className="text-gray-200 hover:text-blue-400 transition-all duration-300">Crime</a>
+            <a href="#cases" className="text-gray-200 hover:text-blue-400 transition-all duration-300">Cases</a>
+            <FaSearch className="ml-4 cursor-pointer text-gray-200 hover:text-blue-400 transition-all duration-300" />
           </div>
 
           {/* Emergency Call */}
           <div className="flex items-center">
-            <button className="flex items-center bg-yellow-400 text-gray-800 px-4 py-2 rounded-lg">
+            <button className="flex items-center bg-blue-600 text-white px-4 py-2 rounded-lg transition-all duration-300 hover:bg-blue-500">
               <FaPhoneAlt className="mr-2" />
               <p className='text-sm'>1-888-817-1234</p>
             </button>
