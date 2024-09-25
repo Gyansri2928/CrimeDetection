@@ -39,7 +39,7 @@ const Crime = () => {
   return (
     <div
       id="crime"
-      className="max-w-[1340px] m-auto px-4 py-16 bg-gradient-to-b from-gray-800 to-gray-900" // Darker gradient background
+      className="max-w-[1340px] m-auto w-full px-4 py-16 bg-gradient-to-b from-gray-800 to-gray-900" // Darker gradient background
     >
       {/* Title */}
       <h2 className="text-center text-blue-300 font-bold text-5xl tracking-wide leading-tight shadow-lg mb-8">

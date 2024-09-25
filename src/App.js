@@ -7,7 +7,7 @@ import Crime from './components/crime';
 import About from './components/about';
 import Cases from './components/cases';
 import Footer from './components/footer';
-import SocialMedia from './components/socialmedia';
+import SocialMediaSection from './components/socialmedia';
 
 function App() {
   return (
@@ -17,7 +17,7 @@ function App() {
       <About/>
       <Cases/>
       <Crime/>
-      <SocialMedia/>
+      <SocialMediaSection/>
       <Footer/>
     </div>
   );
