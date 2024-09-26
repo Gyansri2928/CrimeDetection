@@ -58,39 +58,49 @@ const Cases = ({ ipcCrimes, sllCrimes, totalCrimes }) => {
         </p>
       </div>
 
-      {/* Static Image of India with Caption */}
-      
+      {/* Static Image of India with 3D Box Effect */}
       <div className="flex flex-col justify-center items-center mt-12">
-      <p className="mt-4 text-2xl text-blue-300">Crime Hotspots in India</p>
-        <img
-          src={IndiaMap} // Replace with the correct path to the image
-          alt="Map of India"
-          className="h-[750px] w-[77%] rounded-[15px] hover:shadow-lg" 
-        />
-        <div className="mt-12 bg-gray-800 p-6 rounded-lg shadow-lg">
-        <div className="flex space-x-4">
-          <div className="flex items-center">
-            <div className="w-4 h-4 bg-red-500 rounded-full mr-2"></div>
-            <span className="text-white">Highly Unsafe</span>
-          </div>
-          <div className="flex items-center">
-            <div className="w-4 h-4 bg-orange-300 rounded-full mr-2"></div>
-            <span className="text-white">Unsafe</span>
-          </div>
-          <div className="flex items-center">
-            <div className="w-4 h-4 bg-yellow-500 rounded-full mr-2"></div>
-            <span className="text-white">Less Safe</span>
-          </div>
-          <div className="flex items-center">
-            <div className="w-4 h-4 bg-green-500 rounded-full mr-2"></div>
-            <span className="text-white">Safe</span>
+        
+        {/* Enhanced Heading with Gradient and Fade */}
+        <div className="relative group mb-8">
+          <p className="text-2xl text-white py-3 px-6 rounded-md bg-gradient-to-r from-blue-500 to-purple-600 shadow-lg">
+            Crime Hotspots in India
+          </p>
+        </div>
+
+        {/* 3D Map Box with Legend Inside */}
+        <div className="relative transform-gpu" style={{ perspective: '1000px' }}>
+          <div className="h-[750px] w-[88%] rounded-[15px] shadow-2xl transform rotate-x-6 rotate-y-3 relative">
+            <img
+              src={IndiaMap}
+              alt="Map of India"
+              className="h-full w-full rounded-[15px] object-cover"
+            />
+            
+            {/* Legend Section Inside the Map Div */}
+            <div className="absolute bottom-6 left-6 bg-gray-800 p-4 rounded-lg shadow-md">
+              <div className="flex space-x-4">
+                <div className="flex items-center">
+                  <div className="w-4 h-4 bg-red-500 rounded-full mr-2"></div>
+                  <span className="text-white">Highly Unsafe</span>
+                </div>
+                <div className="flex items-center">
+                  <div className="w-4 h-4 bg-orange-500 rounded-full mr-2"></div>
+                  <span className="text-white">Unsafe</span>
+                </div>
+                <div className="flex items-center">
+                  <div className="w-4 h-4 bg-yellow-500 rounded-full mr-2"></div>
+                  <span className="text-white">Less Safe</span>
+                </div>
+                <div className="flex items-center">
+                  <div className="w-4 h-4 bg-green-500 rounded-full mr-2"></div>
+                  <span className="text-white">Safe</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-      </div> 
       </div>
-
-      {/* Legend Section */}
-      
     </div>
   );
 };
