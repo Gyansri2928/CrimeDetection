@@ -1,12 +1,12 @@
 import React, { useRef } from 'react';
 import Slider from 'react-slick';
-import { FaChevronLeft, FaChevronRight } from 'react-icons/fa'; // Importing icons from react-icons
+import { FaChevronLeft, FaChevronRight } from 'react-icons/fa'; 
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import '/home/gian/Documents/crimedetect/src/crime.css'; // Import the CSS file for styles
+import '/home/gian/Documents/crimedetect/src/crime.css'; 
 
 const Crime = () => {
-  const sliderRef = useRef(null); // Create a ref for the slider
+  const sliderRef = useRef(null);
 
   // Carousel settings
   const settings = {
@@ -15,8 +15,8 @@ const Crime = () => {
     speed: 500,
     slidesToShow: 3,
     slidesToScroll: 1,
-    arrows: false, // Disable default arrows
-    ref: sliderRef, // Add ref to settings
+    arrows: false,
+    ref: sliderRef,
     responsive: [
       {
         breakpoint: 1024,
@@ -39,7 +39,7 @@ const Crime = () => {
   return (
     <div
       id="crime"
-      className="max-w-[1340px] m-auto w-full px-4 py-16 bg-gradient-to-b from-gray-800 to-gray-900" // Darker gradient background
+      className="w-full m-auto px-4 py-16 bg-gradient-to-b from-gray-900 via-gray-800 to-black" // Gradient transition between sections
     >
       {/* Title */}
       <h2 className="text-center text-blue-300 font-bold text-5xl tracking-wide leading-tight shadow-lg mb-8">
@@ -92,7 +92,7 @@ const Crime = () => {
 
                 {/* Overlay */}
                 <div className="absolute inset-0 bg-black bg-opacity-50 flex justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <h3 className="text-blue-300 font-bold text-lg">{item.title}</h3> {/* Royal blue text for title */}
+                  <h3 className="text-blue-300 font-bold text-lg">{item.title}</h3>
                 </div>
               </div>
             </div>
@@ -102,13 +102,13 @@ const Crime = () => {
         {/* Custom Arrow Buttons */}
         <button
           className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-gray-700 text-white p-3 rounded-full shadow-md hover:bg-gray-600 transition duration-200"
-          onClick={() => sliderRef.current.slickPrev()} // Call slickPrev on click
+          onClick={() => sliderRef.current.slickPrev()} 
         >
           <FaChevronLeft size={24} />
         </button>
         <button
           className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-gray-700 text-white p-3 rounded-full shadow-md hover:bg-gray-600 transition duration-200"
-          onClick={() => sliderRef.current.slickNext()} // Call slickNext on click
+          onClick={() => sliderRef.current.slickNext()} 
         >
           <FaChevronRight size={24} />
         </button>
