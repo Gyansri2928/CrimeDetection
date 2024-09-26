@@ -11,40 +11,35 @@ import '/home/gian/Documents/crimedetect/src/socialmedia.css';
 const SocialMediaSection = () => {
   const teamData = [
     {
-      name: 'Priyanshu Tiwari',
-      role: 'Police Officer',
+      name: 'Priyanshu ',
       image: image1,
       email: 'priyanshu.tiwari090@gmail.com',
       github: 'https://github.com/priyanshu',
       linkedin: 'https://linkedin.com/priyanshu'
     },
     {
-      name: 'Srijan Pratap Singh',
-      role: 'Police Officer',
+      name: 'Srijan ',
       image: image2,
       email: 'srijansraikwar@gmail.com',
       github: 'https://github.com/srijan',
       linkedin: 'https://linkedin.com/priyanshu'
     },
     {
-      name: 'Karan Singh Manral',
-      role: 'Police Officer',
+      name: 'Karan ',
       image: image3,
       email: 'karanmanral29@gmail.com',
       github: 'https://github.com/karan',
       linkedin: 'https://linkedin.com/priyanshu'
     },
     {
-      name: 'Nikhil Yadav',
-      role: 'Police Officer',
+      name: 'Nikhil ',
       image: image4,
       email: 'ynikhil4232@gmail.com',
       github: 'https://github.com/nikhil',
       linkedin: 'https://linkedin.com/priyanshu'
     },
     {
-      name: 'Gyan Sagar Srivastava',
-      role: 'Police Officer',
+      name: 'Gyan ',
       image: image5,
       email: 'gyansri28@gmail.com',
       github: 'https://github.com/gyan',
@@ -53,7 +48,6 @@ const SocialMediaSection = () => {
   ];
 
   return (
-    <SocialMediaSection className="bg-gradient-to-t from-blue-900 to-gray-800 text-white py-6">
       <div className="team-area pt-120 pb-80">
         <div className="container">
           <div className="row">
@@ -106,7 +100,6 @@ const SocialMediaSection = () => {
           </div>
         </div>
       </div>
-    </SocialMediaSection>
   );
 };
 

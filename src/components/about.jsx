@@ -1,6 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
+import gif1 from "/home/gian/Documents/crimedetect/src/gif/project.gif";
+import staticImage from "/home/gian/Documents/crimedetect/src/assets/img/download.png"; // Add a static image preview if needed
 
 const About = () => {
+  const [showGif, setShowGif] = useState(false); // Manage GIF visibility
+
+  const handlePlayButtonClick = () => {
+    setShowGif(true); // Show the GIF when the play button is clicked
+  };
+
+  const handleStopButtonClick = () => {
+    setShowGif(false); // Hide the GIF when the stop button is clicked
+  };
+
   return (
     <div className="bg-gradient-to-b from-gray-900 to-gray-800 text-gray-200 py-16" id="about">
       <div className="max-w-[1340px] m-auto px-4">
@@ -14,6 +26,46 @@ const About = () => {
           With Satark, you are never alone in safeguarding yourself and your community.
         </p>
         
+        {/* Smaller GIF Section with Play and Stop Buttons */}
+        <div className="text-center mb-8">
+          <h3 className="text-2xl text-blue-300 font-semibold mb-4">See Satark in Action!</h3>
+          <div className="inline-block relative group">
+            <div className="relative rounded-lg shadow-lg border-2 border-transparent border-image-linear from-blue-500 to-purple-500 via-pink-500 bg-gradient-to-r p-1">
+              {showGif ? (
+                <div className="flex flex-col items-center justify-center" style={{ maxWidth: '1400px', height: 'auto' }}>
+                  <img
+                    src={gif1} // Use GIF directly for a more engaging view
+                    alt="Satark Working Demo"
+                    className="rounded-lg"
+                    style={{ maxWidth: '800px', height: 'auto' }} // Set a fixed width for smaller size
+                  />
+                  <button
+                    onClick={handleStopButtonClick}
+                    className="mt-4 bg-red-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-red-600 transition duration-200"
+                  >
+                    ■ Stop
+                  </button>
+                </div>
+              ) : (
+                <div className="flex flex-col items-center justify-center" style={{ maxWidth: '800px', height: 'auto' }}>
+                  <img
+                    src={staticImage} // Optional static image preview
+                    alt="Static Preview"
+                    className="rounded-lg"
+                    style={{ maxWidth: '400px', height: 'auto' }} // Adjust size as needed
+                  />
+                  <button
+                    onClick={handlePlayButtonClick}
+                    className="mt-4 bg-blue-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-blue-600 transition duration-200"
+                  >
+                    ▶ Play
+                  </button>
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div className="bg-gray-900 p-6 rounded-lg shadow-lg border border-blue-500">
             <h3 className="text-blue-300 font-semibold text-xl mb-4">Our Vision</h3>
