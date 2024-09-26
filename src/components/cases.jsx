@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { MapContainer, TileLayer } from 'react-leaflet';
-import 'leaflet/dist/leaflet.css';
+import IndiaMap from '/home/gian/Documents/crimedetect/src/assets/img/map.png';
 
 // Utility function for counting animation
 const useCountUp = (start, end, duration) => {
@@ -27,19 +26,10 @@ const useCountUp = (start, end, duration) => {
 };
 
 const Cases = ({ ipcCrimes, sllCrimes, totalCrimes }) => {
-  // Coordinates for the map to focus on India
-  const position = [20.5937, 78.9629]; // Center coordinates for India
-
-  // Bounding box coordinates to restrict the view to India
-  const bounds = [
-    [6.4627, 68.1097],  // Southwest corner of India
-    [35.5133, 97.3954], // Northeast corner of India
-  ];
-
   // Using useCountUp for counting animation
-  const ipcCount = useCountUp(0, ipcCrimes, 2000); // Duration is 2000ms (2 seconds)
-  const sllCount = useCountUp(0, sllCrimes, 2000);
-  const totalCount = useCountUp(0, totalCrimes, 2000);
+  const ipcCount = useCountUp(0, ipcCrimes, 1000); 
+  const sllCount = useCountUp(0, sllCrimes, 1000);
+  const totalCount = useCountUp(0, totalCrimes, 1000);
 
   return (
     <div className="max-w-full m-auto px-6 py-24 bg-gradient-to-b from-gray-800 to-gray-900 text-white" id="cases">
@@ -68,21 +58,39 @@ const Cases = ({ ipcCrimes, sllCrimes, totalCrimes }) => {
         </p>
       </div>
 
-      {/* Map Container */}
-      <div className="flex justify-center items-center mt-12">
-        <MapContainer 
-          center={position} 
-          zoom={4.5 } 
-          style={{ height: '500px', width: '77%', borderRadius: '15px' }}
-          maxBounds={bounds} // Set the bounds to India
-          maxBoundsViscosity={1.0} // Prevent panning outside the bounds
-        >
-          <TileLayer
-            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-          />
-        </MapContainer>
+      {/* Static Image of India with Caption */}
+      
+      <div className="flex flex-col justify-center items-center mt-12">
+      <p className="mt-4 text-2xl text-blue-300">Crime Hotspots in India</p>
+        <img
+          src={IndiaMap} // Replace with the correct path to the image
+          alt="Map of India"
+          className="h-[750px] w-[77%] rounded-[15px] hover:shadow-lg" 
+        />
+        <div className="mt-12 bg-gray-800 p-6 rounded-lg shadow-lg">
+        <div className="flex space-x-4">
+          <div className="flex items-center">
+            <div className="w-4 h-4 bg-red-500 rounded-full mr-2"></div>
+            <span className="text-white">Highly Unsafe</span>
+          </div>
+          <div className="flex items-center">
+            <div className="w-4 h-4 bg-orange-300 rounded-full mr-2"></div>
+            <span className="text-white">Unsafe</span>
+          </div>
+          <div className="flex items-center">
+            <div className="w-4 h-4 bg-yellow-500 rounded-full mr-2"></div>
+            <span className="text-white">Less Safe</span>
+          </div>
+          <div className="flex items-center">
+            <div className="w-4 h-4 bg-green-500 rounded-full mr-2"></div>
+            <span className="text-white">Safe</span>
+          </div>
+        </div>
+      </div> 
       </div>
+
+      {/* Legend Section */}
+      
     </div>
   );
 };
