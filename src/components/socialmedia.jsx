@@ -1,12 +1,12 @@
 import React from 'react';
 import { AiFillMail, AiFillGithub, AiFillLinkedin } from 'react-icons/ai';
-import image1 from '/home/gian/Documents/crimedetect/src/assets/img/01.jpeg';
-import image2 from '/home/gian/Documents/crimedetect/src/assets/img/02.jpeg';
-import image3 from '/home/gian/Documents/crimedetect/src/assets/img/03.jpeg';
-import image4 from '/home/gian/Documents/crimedetect/src/assets/img/04.jpeg';
-import image5 from '/home/gian/Documents/crimedetect/src/assets/img/05.jpeg';
-import groupImage from '/home/gian/Documents/crimedetect/src/assets/img/group.jpeg'; // Add the path to your group photo
-import '/home/gian/Documents/crimedetect/src/socialmedia.css';
+import image1 from "../assets/img/01.jpeg";
+import image2 from "../assets/img/02.jpeg";
+import image3 from "../assets/img/03.jpeg";
+import image4 from "../assets/img/04.jpeg";
+import image5 from "../assets/img/05.jpeg";
+import groupImage from "../assets/img/group.jpeg"
+import "../assets/css/socialmedia.css"
 
 const SocialMediaSection = () => {
   const teamData = [
@@ -28,8 +28,8 @@ const SocialMediaSection = () => {
       name: 'Karan ',
       image: image3,
       email: 'karanmanral29@gmail.com',
-      github: 'https://github.com/karan',
-      linkedin: 'https://linkedin.com/priyanshu'
+      github: 'https://github.com/karanmanral',
+      linkedin: 'https://linkedin.com/in/karanmanral29'
     },
     {
       name: 'Nikhil ',
@@ -56,7 +56,7 @@ const SocialMediaSection = () => {
                 <h2 className="site-title">Meet With Our <span className="highlight">Expert</span> Team</h2>
                 {/* Group Photo below the title */}
                 <div className="flex justify-center mt-4 mb-4">
-                  <div className="relative rounded-lg shadow-lg overflow-hidden transition-shadow duration-300 border border-blue-500 max-w-lg w-full bg-gradient-to-r from-blue-500 via-blue-300 to-blue-500 p-1 hover:shadow-2xl hover:scale-105 transform transition-all">
+                  <div className="relative rounded-lg shadow-lg overflow-hidden border border-blue-500 max-w-lg w-full bg-gradient-to-r from-blue-500 via-blue-300 to-blue-500 p-1 hover:shadow-2xl hover:scale-105 transform transition-all duration-300">
                     <div className="bg-white rounded-lg p-1">
                       <img
                         src={groupImage}

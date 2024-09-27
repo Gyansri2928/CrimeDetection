@@ -1,0 +1,33 @@
+.zoom-animation {
+    transition: transform 0.5s ease;
+    padding: 0 10px; /* Add horizontal padding for gap between images */
+  }
+  
+  .zoom-animation:hover {
+    transform: scale(1.1); /* Zoom in effect */
+  }
+  
+  .slick-slide {
+    padding: 8px; /* Add padding for spacing around images */
+  }
+  /* Custom styles for the slider dots */
+.slick-dots {
+  bottom: -30px; /* Adjust position if needed */
+}
+
+.slick-dots li button {
+  background: white !important; /* Force dot color to white */
+  opacity: 0.5; /* Optional: set initial opacity */
+  width: 12px; /* Width of the dots */
+  height: 12px; /* Height of the dots */
+  border-radius: 50%; /* Make them circular */
+}
+
+.slick-dots li.slick-active button {
+  opacity: 1; /* Full opacity for active dot */
+}
+
+/* Additional styles for hover effect */
+.slick-dots li button:hover {
+  opacity: 0.8; /* Change opacity on hover */
+}

@@ -81,6 +81,7 @@ const Navbar = () => {
             <a href="/" className="text-gray-200 hover:text-blue-400 transition-all duration-300">Home</a>
             <a href="#about" className="text-gray-200 hover:text-blue-400 transition-all duration-300">About</a>
             <a href="#crime" className="text-gray-200 hover:text-blue-400 transition-all duration-300">Crime</a>
+            <a href="/detect_criminal" className="text-gray-200 hover:text-blue-400 transition-all duration-300">Criminal Detector</a>
             <a href="#cases" className="text-gray-200 hover:text-blue-400 transition-all duration-300">Cases</a>
             <FaSearch className="ml-4 cursor-pointer text-gray-200 hover:text-blue-400 transition-all duration-300" />
           </div>

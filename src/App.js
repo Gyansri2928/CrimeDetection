@@ -1,5 +1,4 @@
 import React from 'react';
-import './index.css';
 
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
@@ -8,10 +7,14 @@ import About from './components/about';
 import Cases from './components/cases';
 import Footer from './components/footer';
 import SocialMediaSection from './components/socialmedia';
+import DetectCriminal from "./components/detectFace"
 
-function App() {
-  return (
-    <div>
+import {createBrowserRouter,RouterProvider} from "react-router-dom";
+
+const router = createBrowserRouter([
+  {
+    path: "",
+    element: <>
       <Navbar/>
       <Hero/>
       <About/>
@@ -19,7 +22,17 @@ function App() {
       <Crime/>
       <SocialMediaSection/>
       <Footer/>
-    </div>
+    </>
+  },
+  {
+    path: "/detect_criminal",
+    element: <DetectCriminal />
+  }
+])
+
+function App() {
+  return (
+    <RouterProvider router={router} />
   );
 }
 
