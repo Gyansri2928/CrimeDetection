@@ -28,8 +28,8 @@ const SocialMediaSection = () => {
       name: 'Karan',
       image: image3,
       email: 'karanmanral29@gmail.com',
-      github: 'https://github.com/karan',
-      linkedin: 'https://linkedin.com/priyanshu',
+      github: 'https://github.com/karanmanral',
+      linkedin: 'https://linkedin.com/in/karanmanral29'
     },
     {
       name: 'Nikhil',

@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
-import gif1 from "/home/gian/Documents/crimedetect/src/gif/project.gif";
-import staticImage from "/home/gian/Documents/crimedetect/src/assets/img/download.png"; // Add a static image preview if needed
+import gif1 from "../assets/img/project.gif";
+import staticImage from "../assets/img/download.jpg"; // Add a static image preview if needed
 
 const About = () => {
   const [showGif, setShowGif] = useState(false); // Manage GIF visibility
