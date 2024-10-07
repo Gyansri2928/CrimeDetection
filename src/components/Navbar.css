@@ -1,57 +1,18 @@
-/* Add this to your CSS or style block */
-.live-indicator {
-    position: relative;
-  }
-  .live-container {
-    margin-left: -45px; /* Adjust this value to slide more/less */
-  }
-  
-  .live-indicator::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 12px;
-    height: 12px;
-    background-color: transparent;
-    border: 2px solid red; /* Circular border detached from the dot */
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-    animation: pulse 1.5s infinite;
-  }
-  
-  .live-indicator::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 30px;
-    height: 30px;
-    background-color: rgba(255, 0, 0, 0.2); /* Faded red for wave effect */
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-    animation: wave 1.5s infinite;
-  }
-  
-  @keyframes pulse {
-    0% {
-      transform: translate(-50%, -50%) scale(1);
-      opacity: 1;
-    }
-    100% {
-      transform: translate(-50%, -50%) scale(1.2);
-      opacity: 0;
-    }
-  }
-  
-  @keyframes wave {
-    0% {
-      transform: translate(-50%, -50%) scale(1);
-      opacity: 1;
-    }
-    100% {
-      transform: translate(-50%, -50%) scale(1.5);
-      opacity: 0;
-    }
-  }
-  
+/* Hover effect for navbar links */
+.relative {
+  position: relative; /* Ensure positioning for the absolute line */
+}
+
+.relative span {
+  position: absolute; /* Positioning for the line */
+  left: 0;
+  bottom: -5px; /* Adjust this value to position the line */
+  height: 3px; /* Line thickness */
+  width: 0; /* Start width */
+  background-color: blue; /* Change to your desired color */
+  transition: width 0.3s ease; /* Animate width on hover */
+}
+
+.relative:hover span {
+  width: 100%; /* Expand to full width on hover */
+}

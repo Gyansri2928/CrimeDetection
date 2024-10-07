@@ -1,11 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import IndiaMap from '/home/gian/Documents/crimedetect/src/assets/img/map.png';
 
 // Utility function for counting animation
-const useCountUp = (start, end, duration) => {
+const useCountUp = (start, end, duration, startCounting) => {
   const [count, setCount] = useState(start);
 
   useEffect(() => {
+    if (!startCounting) return; // Skip counting if not in view
+
     let startTime = null;
     const step = (timestamp) => {
       if (!startTime) startTime = timestamp;
@@ -20,19 +22,58 @@ const useCountUp = (start, end, duration) => {
       }
     };
     window.requestAnimationFrame(step);
-  }, [start, end, duration]);
+  }, [start, end, duration, startCounting]);
 
   return count;
 };
 
 const Cases = ({ ipcCrimes, sllCrimes, totalCrimes }) => {
+  // State to manage visibility and hover effect
+  const [isVisible, setIsVisible] = useState(false);
+  const [hoveredRegion, setHoveredRegion] = useState(null);
+  const sectionRef = useRef(null);
+
   // Using useCountUp for counting animation
-  const ipcCount = useCountUp(0, ipcCrimes, 1000); 
-  const sllCount = useCountUp(0, sllCrimes, 1000);
-  const totalCount = useCountUp(0, totalCrimes, 1000);
+  const ipcCount = useCountUp(0, ipcCrimes, 1000, isVisible);
+  const sllCount = useCountUp(0, sllCrimes, 1000, isVisible);
+  const totalCount = useCountUp(0, totalCrimes, 1000, isVisible);
+
+  // Intersection Observer to trigger counting animation
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        } else {
+          setIsVisible(false);
+        }
+      },
+      { threshold: 0.1 } // Adjust the threshold as needed
+    );
+
+    const currentSectionRef = sectionRef.current; // Store in a variable for cleanup
+
+    if (currentSectionRef) {
+      observer.observe(currentSectionRef);
+    }
+
+    return () => {
+      if (currentSectionRef) {
+        observer.unobserve(currentSectionRef);
+      }
+    };
+  }, []);
+
+  // Data for regions with crime levels
+  const regionsData = [
+    { name: 'Region 1', safetyLevel: 'Highly Unsafe', coords: [100, 100] },
+    { name: 'Region 2', safetyLevel: 'Unsafe', coords: [200, 150] },
+    { name: 'Region 3', safetyLevel: 'Less Safe', coords: [300, 200] },
+    { name: 'Region 4', safetyLevel: 'Safe', coords: [400, 250] },
+  ];
 
   return (
-    <div className="max-w-full m-auto px-6 py-24 bg-gradient-to-b from-gray-800 to-gray-900 text-white" id="cases">
+    <div ref={sectionRef} className="max-w-full m-auto px-6 py-24 bg-gradient-to-b from-gray-800 to-gray-900 text-white" id="cases">
       <h2 className="text-center text-blue-300 font-bold text-5xl mb-16" id="cases-title">Cases and Crime Analysis</h2>
       
       {/* Crime Data Section */}
@@ -58,7 +99,7 @@ const Cases = ({ ipcCrimes, sllCrimes, totalCrimes }) => {
         </p>
       </div>
 
-      {/* Static Image of India with 3D Box Effect */}
+      {/* Interactive Map of India */}
       <div className="flex flex-col justify-center items-center mt-12">
         
         {/* Enhanced Heading with Gradient and Fade */}
@@ -77,6 +118,33 @@ const Cases = ({ ipcCrimes, sllCrimes, totalCrimes }) => {
               className="h-full w-full rounded-[15px] object-cover"
             />
             
+            {/* Region Overlays for Interactivity */}
+            {regionsData.map((region, index) => (
+              <div
+                key={index}
+                onMouseEnter={() => setHoveredRegion(region)}
+                onMouseLeave={() => setHoveredRegion(null)}
+                style={{
+                  position: 'absolute',
+                  top: region.coords[1],
+                  left: region.coords[0],
+                  width: '50px',
+                  height: '50px',
+                  backgroundColor: hoveredRegion === region ? 'rgba(255, 255, 255, 0.6)' : 'transparent',
+                  borderRadius: '50%',
+                  cursor: 'pointer',
+                }}
+              />
+            ))}
+
+            {/* Tooltip for hovered region */}
+            {hoveredRegion && (
+              <div className="absolute top-12 left-12 bg-gray-800 p-2 rounded-md">
+                <p className="text-white font-semibold">{hoveredRegion.name}</p>
+                <p className="text-white">{hoveredRegion.safetyLevel}</p>
+              </div>
+            )}
+
             {/* Legend Section Inside the Map Div */}
             <div className="absolute bottom-6 left-6 bg-gray-800 p-4 rounded-lg shadow-md">
               <div className="flex space-x-4">
@@ -105,7 +173,9 @@ const Cases = ({ ipcCrimes, sllCrimes, totalCrimes }) => {
   );
 };
 
-// Sample usage of the Cases component with dynamic crime data as props
-export default () => (
-  <Cases ipcCrimes={1234567} sllCrimes={765432} totalCrimes={2100153} />
+// Assigning the Cases component to a variable before exporting
+const CasesComponent = (props) => (
+  <Cases ipcCrimes={1234567} sllCrimes={765432} totalCrimes={2100153} {...props} />
 );
+
+export default CasesComponent;

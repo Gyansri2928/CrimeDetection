@@ -1,8 +1,9 @@
 import React from 'react';
+import { AiFillFacebook, AiFillTwitterCircle, AiFillInstagram } from 'react-icons/ai';
 
 const Footer = () => {
   return (
-    <footer className="bg-gradient-to-t from-blue-600 to-gray-800 text-white py-6">
+    <footer className="bg-gradient-to-t from-blue-500 to-gray-800 text-white py-6">
       <div className="max-w-[1340px] m-auto px-4">
         <div className="flex flex-col md:flex-row justify-between items-start">
           {/* Stay Connected Section */}
@@ -11,13 +12,13 @@ const Footer = () => {
             <p className="text-sm">Follow us on social media for updates and alerts!</p>
             <div className="flex space-x-4 mt-2">
               <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
-                <i className="fab fa-facebook-square fa-lg"></i>
+                <AiFillFacebook size={24} className="hover:text-blue-300 transition-colors duration-300" />
               </a>
               <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer">
-                <i className="fab fa-twitter-square fa-lg"></i>
+                <AiFillTwitterCircle size={24} className="hover:text-blue-300 transition-colors duration-300" />
               </a>
               <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
-                <i className="fab fa-instagram-square fa-lg"></i>
+                <AiFillInstagram size={24} className="hover:text-blue-300 transition-colors duration-300" />
               </a>
             </div>
           </div>

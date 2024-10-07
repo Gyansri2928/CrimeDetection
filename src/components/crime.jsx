@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import Slider from 'react-slick';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa'; 
 import 'slick-carousel/slick/slick.css';
@@ -7,6 +7,7 @@ import '/home/gian/Documents/crimedetect/src/crime.css';
 
 const Crime = () => {
   const sliderRef = useRef(null);
+  const [isVisible, setIsVisible] = useState(false); // State to track visibility
 
   // Carousel settings
   const settings = {
@@ -36,18 +37,23 @@ const Crime = () => {
     ],
   };
 
+  useEffect(() => {
+    // Trigger the fade-in effect after the component mounts
+    setIsVisible(true);
+  }, []);
+
   return (
     <div
       id="crime"
-      className="w-full m-auto px-4 py-16 bg-gradient-to-b from-gray-900 via-gray-800 to-black" // Gradient transition between sections
+      className={`w-full m-auto px-4 py-16 bg-gradient-to-b from-gray-900 via-gray-800 to-black`} // Gradient transition between sections
     >
       {/* Title */}
-      <h2 className="text-center text-blue-300 font-bold text-5xl tracking-wide leading-tight shadow-lg mb-8">
+      <h2 className={`text-center text-blue-300 font-bold text-5xl tracking-wide leading-tight shadow-lg mb-8 ${isVisible ? 'fade-in' : ''}`}>
         Crimes
       </h2>
       
       {/* Description */}
-      <p className="text-center text-gray-200 text-lg mb-12">
+      <p className={`text-center text-gray-200 text-lg mb-12 ${isVisible ? 'fade-in' : ''}`}>
         Our advanced model captures various incidents to ensure safety and awareness. 
         The crimes displayed here represent real-world scenarios that can be detected 
         and reported through our application, helping communities stay informed and vigilant.
@@ -69,18 +75,10 @@ const Crime = () => {
               src: 'https://plus.unsplash.com/premium_photo-1670002247328-76fb3b2f8373?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8dGhpZWZ8ZW58MHx8MHx8fDA%3D',
               title: 'Breaking and Entering',
             },
-            {
-              src: 'https://images.unsplash.com/photo-1578530332818-6ba472e67b9f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1772&q=80',
-              title: 'Police Action',
-            },
-            {
-              src: 'https://images.unsplash.com/photo-1613553507747-5f8d62ad5904?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80',
-              title: 'Car Theft',
-            },
           ].map((item, index) => (
             <div
               key={index}
-              className="bg-gray-900 rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 border border-blue-500" // Royal blue border
+              className="bg-gray-900 rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 border border-blue-500 zoom-animation"
             >
               <div className="relative group">
                 {/* Image */}
