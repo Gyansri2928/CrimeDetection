@@ -7,7 +7,7 @@ import '/home/gian/Documents/crimedetect/src/crime.css';
 
 const Crime = () => {
   const sliderRef = useRef(null);
-  const [isVisible, setIsVisible] = useState(false); // State to track visibility
+  const [showAnimation, setShowAnimation] = useState(false); // State to manage animation
 
   // Carousel settings
   const settings = {
@@ -38,8 +38,30 @@ const Crime = () => {
   };
 
   useEffect(() => {
-    // Trigger the fade-in effect after the component mounts
-    setIsVisible(true);
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const entry = entries[0];
+        // Check if the element is in view
+        if (entry.isIntersecting) {
+          setShowAnimation(true); // Trigger animation when in view
+          observer.disconnect(); // Stop observing once it has animated
+        }
+      },
+      {
+        threshold: 0.2, // Trigger when 20% of the component is visible
+      }
+    );
+
+    const currentElement = document.getElementById('crime'); // Get the component by ID
+    if (currentElement) {
+      observer.observe(currentElement); // Start observing the component
+    }
+
+    return () => {
+      if (currentElement) {
+        observer.unobserve(currentElement); // Clean up observer
+      }
+    };
   }, []);
 
   return (
@@ -48,12 +70,12 @@ const Crime = () => {
       className={`w-full m-auto px-4 py-16 bg-gradient-to-b from-gray-900 via-gray-800 to-black`} // Gradient transition between sections
     >
       {/* Title */}
-      <h2 className={`text-center text-blue-300 font-bold text-5xl tracking-wide leading-tight shadow-lg mb-8 ${isVisible ? 'fade-in' : ''}`}>
+      <h2 className={`text-center text-blue-300 font-bold text-5xl tracking-wide leading-tight shadow-lg mb-8 ${showAnimation ? 'animate-slide-in' : 'opacity-0'}`}>
         Crimes
       </h2>
       
       {/* Description */}
-      <p className={`text-center text-gray-200 text-lg mb-12 ${isVisible ? 'fade-in' : ''}`}>
+      <p className={`text-center text-gray-200 text-lg mb-12 ${showAnimation ? 'animate-slide-in' : 'opacity-0'}`}>
         Our advanced model captures various incidents to ensure safety and awareness. 
         The crimes displayed here represent real-world scenarios that can be detected 
         and reported through our application, helping communities stay informed and vigilant.

@@ -56,9 +56,24 @@ const Hero = () => {
       <div className='absolute top-[15%] right-[6%] flex space-x-4 z-20'>
         {/* Wanted Posters */}
         {[
-          { img: image6, name: 'DD Tiwari', description: 'Armed and Dangerous' },
-          { img: image4, name: 'System', description: 'Escaped Prisoner' },
-          { img: image2, name: 'Maulana Srijan', description: 'Maksad Specialist' },
+          {
+            img: image6,
+            name: 'DD Tiwari',
+            description: 'Armed and Dangerous',
+            details: 'Known for: Multiple armed robberies\nLast seen: Near the riverbank',
+          },
+          {
+            img: image4,
+            name: 'System',
+            description: 'Escaped Prisoner',
+            details: 'Known for: Burglary, Assault\nLast seen: Downtown area',
+          },
+          {
+            img: image2,
+            name: 'Maulana Srijan',
+            description: 'Maksad Specialist',
+            details: 'Known for: Organized crime\nLast seen: In the market district',
+          },
         ].map((criminal, index) => (
           <div key={index} className='relative perspective w-44 h-60'>
             {/* Thread Animation */}
@@ -80,8 +95,7 @@ const Hero = () => {
                 {/* Back Side */}
                 <div className='back bg-gray-700 bg-opacity-90 border-4 border-gray-600 rounded-lg shadow-lg flex flex-col items-center justify-center p-3'>
                   <h3 className='text-lg font-bold text-yellow-400'>Details</h3>
-                  <p className='text-md text-gray-300'>Known for: Theft, Assault</p>
-                  <p className='text-md text-gray-300'>Last seen in: Downtown</p>
+                  <p className='text-md text-gray-300'>{criminal.details}</p>
                 </div>
               </div>
             </div>

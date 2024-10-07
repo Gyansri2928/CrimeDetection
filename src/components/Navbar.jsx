@@ -89,7 +89,7 @@ const Navbar = () => {
 
           {/* Navigation Links */}
           <div className="flex items-center space-x-6">
-            {['Home', 'About', 'Crime', 'Cases'].map((item) => (
+            {['Home', 'About' , 'Crime', 'Cases', 'Testimonials'].map((item) => (
               <a 
                 key={item}
                 href={`#${item.toLowerCase()}`} 
