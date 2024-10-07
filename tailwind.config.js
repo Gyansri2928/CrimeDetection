@@ -7,7 +7,7 @@ module.exports = {
     extend: {
       backgroundImage:{
         'hero-bg': "url('/src/assets/img/hero_bg.jpg')"
-      }
+      },
     
       backgroundSize: {
         '400%': '400%',
