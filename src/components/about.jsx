@@ -1,12 +1,12 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState,useRef,useEffect } from 'react';
 import gif1 from "../assets/img/project.gif";
 import staticImage from "../assets/img/download.jpg"; // Add a static image preview if needed
 
 const About = () => {
   const [showGif, setShowGif] = useState(false); // Manage GIF visibility
-  const [showText, setShowText] = useState(false); // Manage scroll animation for text
+  const [showText, setShowText] = useState(false);
 
-  const textRef = useRef(null); // Reference for the text to animate
+  const textRef = useRef(null);
 
   const handlePlayButtonClick = () => {
     setShowGif(true); // Show the GIF when the play button is clicked
@@ -27,7 +27,7 @@ const About = () => {
         threshold: 0.2, // Trigger animation when 20% of the section is visible
       }
     );
-    
+
     if (currentTextRef) {
       observer.observe(currentTextRef);
     }
@@ -40,7 +40,7 @@ const About = () => {
   }, []);
 
   return (
-    <div className="bg-gradient-to-b from-gray-900 to-gray-800 text-gray-200 py-16" id="about">
+    <div className="bg-gradient-to-b from-gray-800 to-gray-900 text-gray-200 py-16" id="about">
       <div className="max-w-[1340px] m-auto px-4">
         <h2 className="text-center text-blue-300 font-bold text-5xl mb-8">About Us</h2>
         <p className={`text-center text-lg mb-6 ${showText ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'} transition-all duration-700`} ref={textRef}>
@@ -56,18 +56,17 @@ const About = () => {
         <div className="text-center mb-8">
           <h3 className="text-2xl text-blue-300 font-semibold mb-4">See Satark in Action!</h3>
           <div className="inline-block relative group">
-            <div className="relative rounded-lg shadow-lg border-2 border-transparent border-image-linear from-blue-500 to-purple-500 via-pink-500 bg-gradient-to-r p-1">
+            <div className={`relative rounded-lg shadow-lg border-2 border-transparent border-image-linear from-blue-500 to-purple-500 via-pink-500 bg-gradient-to-r p-1 ${showGif?"min-w-80 max-lg:w-[90vw] max-xl:w-[80vw] w-[60vw]":""}`}>
               {showGif ? (
                 <div className="flex flex-col items-center justify-center" style={{ maxWidth: '1400px', height: 'auto' }}>
                   <img
                     src={gif1} // Use GIF directly for a more engaging view
                     alt="Satark Working Demo"
-                    className="rounded-lg"
-                    style={{ maxWidth: '800px', height: 'auto' }} // Set a fixed width for smaller size
+                    className="rounded-lg w-full h-auto"
                   />
                   <button
                     onClick={handleStopButtonClick}
-                    className="mt-4 bg-red-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-red-600 transition duration-200"
+                    className="design-btn mt-4 bg-red-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-red-600 transition duration-200"
                   >
                     ■ Stop
                   </button>
@@ -82,7 +81,7 @@ const About = () => {
                   />
                   <button
                     onClick={handlePlayButtonClick}
-                    className="mt-4 bg-blue-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-blue-600 transition duration-200"
+                    className="design-btn mt-4 bg-blue-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-blue-600 transition duration-200"
                   >
                     ▶ Play
                   </button>

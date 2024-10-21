@@ -8,7 +8,6 @@ module.exports = {
       backgroundImage:{
         'hero-bg': "url('/src/assets/img/hero_bg.jpg')"
       },
-    
       backgroundSize: {
         '400%': '400%',
       },
@@ -38,3 +37,4 @@ module.exports = {
   },
   plugins: [],
 }
+

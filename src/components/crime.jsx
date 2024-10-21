@@ -1,9 +1,14 @@
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef,useEffect,useState } from 'react';
 import Slider from 'react-slick';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa'; 
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import "../assets/css/crime.css"; 
+import Robbery from "../assets/img/robbery.jpeg";
+import Murder from "../assets/img/murder.jpeg";
+import Violence from "../assets/img/public_violence.jpeg";
+import Wanted from "../assets/img/wanted.jpg";
+import Brandishing from "../assets/img/brandishing_weapon.webp";
 
 const Crime = () => {
   const sliderRef = useRef(null);
@@ -67,7 +72,7 @@ const Crime = () => {
   return (
     <div
       id="crime"
-      className={`w-full m-auto px-4 py-16 bg-gradient-to-b from-gray-900 via-gray-800 to-black`} // Gradient transition between sections
+      className="w-full m-auto px-4 py-16 bg-gradient-to-b from-gray-900 via-gray-800 to-gray-950" // Gradient transition between sections
     >
       {/* Title */}
       <h2 className={`text-center text-blue-300 font-bold text-5xl tracking-wide leading-tight shadow-lg mb-8 ${showAnimation ? 'animate-slide-in' : 'opacity-0'}`}>
@@ -86,26 +91,34 @@ const Crime = () => {
         <Slider {...settings} ref={sliderRef}>
           {[
             {
-              src: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTg7LnukS9FsZ1b_KHrltvcHyfigJQtRZUDQQ&s',
+              src: Robbery,
+              title: 'Robbery',
+            },
+            {
+              src: Brandishing,
+              title: 'Brandishing Weapons',
+            },
+            {
+              src: Wanted,
+              title: 'Search Wanted Criminals',
+            },
+            {
+              src: Murder,
+              title: 'Murder',
+            },
+            {
+              src: Violence,
               title: 'Public Violence',
-            },
-            {
-              src: 'https://plus.unsplash.com/premium_photo-1670002244351-51860b285f4f?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8dGhpZWZ8ZW58MHx8MHx8fDA%3D',
-              title: 'Theft',
-            },
-            {
-              src: 'https://plus.unsplash.com/premium_photo-1670002247328-76fb3b2f8373?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8dGhpZWZ8ZW58MHx8MHx8fDA%3D',
-              title: 'Breaking and Entering',
             },
           ].map((item, index) => (
             <div
               key={index}
-              className="bg-gray-900 rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 border border-blue-500 zoom-animation"
+              className="h-80 bg-gray-900 rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 border border-blue-500 cursor-pointer" // Royal blue border
             >
               <div className="relative group">
                 {/* Image */}
                 <img
-                  className="w-full h-56 object-cover transition-transform transform group-hover:scale-105 duration-300"
+                  className="w-full h-auto object-fit transition-transform transform group-hover:scale-105 duration-300"
                   src={item.src}
                   alt={item.title}
                 />
@@ -121,13 +134,13 @@ const Crime = () => {
          
         {/* Custom Arrow Buttons */}
         <button
-          className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-gray-700 text-white p-3 rounded-full shadow-md hover:bg-gray-600 transition duration-200"
+          className="design-btn absolute top-1/2 left-4 transform -translate-y-1/2 bg-gray-700 text-white p-3 rounded-full shadow-md hover:bg-gray-600 transition duration-200"
           onClick={() => sliderRef.current.slickPrev()} 
         >
           <FaChevronLeft size={24} />
         </button>
         <button
-          className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-gray-700 text-white p-3 rounded-full shadow-md hover:bg-gray-600 transition duration-200"
+          className="design-btn absolute top-1/2 right-4 transform -translate-y-1/2 bg-gray-700 text-white p-3 rounded-full shadow-md hover:bg-gray-600 transition duration-200"
           onClick={() => sliderRef.current.slickNext()} 
         >
           <FaChevronRight size={24} />

@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { FaQuoteLeft } from 'react-icons/fa';
-import './review.css';
+import '../assets/css/review.css';
 
 const MAX_LENGTH = 150;
 
@@ -23,7 +23,7 @@ const TestimonialCard = ({ review, name, title }) => {
   const displayedText = isExpanded || !shouldTruncate ? review : `${review.slice(0, MAX_LENGTH)}...`;
 
   return (
-    <div className="testimonial-card p-6 rounded-lg flex-shrink-0 w-[350px] bg-opacity-20 bg-white">
+    <div className="testimonial-card p-6 rounded-lg flex-shrink-0 w-[350px] min-h-[400px] my-5 bg-opacity-20 bg-white">
       <FaQuoteLeft className="text-blue-400 text-3xl mb-4" />
       <p className="text-lg italic">{`"${displayedText}"`}</p>
       {shouldTruncate && (
@@ -68,15 +68,15 @@ const Testimonials = () => {
   }, []);
 
   return (
-    <div ref={sectionRef} className="testimonials-section py-16 bg-gradient-to-b from-gray-800 to-gray-900 text-white">
+    <div ref={sectionRef} className="testimonials-section py-16 bg-gradient-to-b from-gray-950 via-gray-800 to-gray-950 text-white" id='reviews'>
       <div className="max-w-[1140px] mx-auto">
         <h2
           className={`text-4xl font-bold text-center mb-8 transition-all duration-700 ${showText ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
         >
-          <span className="text-white">What Our Experts Say About </span>
+          <span className="text-white">What People Say About </span>
           <span className="text-blue-600">Satark</span>
         </h2>
-        <div className="testimonial-carousel space-x-8 overflow-x-scroll flex">
+        <div className="testimonial-carousel space-x-8 overflow-x-auto flex justify-around">
           {testimonials.map((testimonial, index) => (
             <div
               key={index}

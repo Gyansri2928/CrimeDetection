@@ -7,9 +7,8 @@ import About from './components/about';
 import Cases from './components/cases';
 import Footer from './components/footer';
 import SocialMediaSection from './components/socialmedia';
-import Testimonials from './components/review';
-
 import DetectCriminal from "./components/detectFace"
+import Reviews from "./components/review";
 
 import {createBrowserRouter,RouterProvider} from "react-router-dom";
 
@@ -19,10 +18,10 @@ const router = createBrowserRouter([
     element: <>
       <Navbar/>
       <Hero/>
-      <About/>
-      <Testimonials/>
       <Cases/>
+      <About/>
       <Crime/>
+      <Reviews />
       <SocialMediaSection/>
       <Footer/>
     </>

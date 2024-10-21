@@ -1,18 +1,27 @@
-/* Hover effect for navbar links */
-.relative {
-  position: relative; /* Ensure positioning for the absolute line */
-}
-
-.relative span {
-  position: absolute; /* Positioning for the line */
-  left: 0;
-  bottom: -5px; /* Adjust this value to position the line */
-  height: 3px; /* Line thickness */
-  width: 0; /* Start width */
-  background-color: blue; /* Change to your desired color */
-  transition: width 0.3s ease; /* Animate width on hover */
-}
-
-.relative:hover span {
-  width: 100%; /* Expand to full width on hover */
-}
+/* Add this to your CSS or style block */
+  .live-container {
+    margin-left: -45px; /* Adjust this value to slide more/less */
+  }
+  
+  @keyframes pulse {
+    0% {
+      transform: translate(-50%, -50%) scale(1);
+      opacity: 1;
+    }
+    100% {
+      transform: translate(-50%, -50%) scale(1.2);
+      opacity: 0;
+    }
+  }
+  
+  @keyframes wave {
+    0% {
+      transform: translate(-50%, -50%) scale(1);
+      opacity: 1;
+    }
+    100% {
+      transform: translate(-50%, -50%) scale(1.5);
+      opacity: 0;
+    }
+  }
+  
