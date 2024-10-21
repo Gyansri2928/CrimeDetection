@@ -1,55 +1,106 @@
-import React from 'react';
-import { AiFillFacebook, AiFillTwitterCircle, AiFillInstagram } from 'react-icons/ai';
+import React from "react";
 
 const Footer = () => {
   return (
-    <footer className="bg-gradient-to-t from-blue-500 to-gray-800 text-white py-6">
-      <div className="max-w-[1340px] m-auto px-4">
-        <div className="flex flex-col md:flex-row justify-between items-start">
-          {/* Stay Connected Section */}
-          <div className="mb-4 md:mb-0">
-            <h5 className="text-lg font-bold">Stay Connected</h5>
-            <p className="text-sm">Follow us on social media for updates and alerts!</p>
-            <div className="flex space-x-4 mt-2">
-              <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
-                <AiFillFacebook size={24} className="hover:text-blue-300 transition-colors duration-300" />
-              </a>
-              <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer">
-                <AiFillTwitterCircle size={24} className="hover:text-blue-300 transition-colors duration-300" />
-              </a>
-              <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
-                <AiFillInstagram size={24} className="hover:text-blue-300 transition-colors duration-300" />
-              </a>
-            </div>
+    <footer className="bg-gradient-to-b from-gray-900 via-gray-950 to-black text-gray-300 py-10 border border-gray-400">
+      <div className="w-full mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left px-24">
+          {/* About Section */}
+          <div>
+            <h3 className="text-lg font-semibold text-gray-100 mb-4">
+              About Us
+            </h3>
+            <p className="text-sm">
+              We are a team of dedicated professionals providing cutting-edge
+              solutions to ensure safety and awareness.
+            </p>
           </div>
 
-          {/* Quick Links Section */}
-          <div className="mb-4 md:mb-0">
-            <h5 className="text-lg font-bold">Quick Links</h5>
-            <ul className="space-y-1 text-sm">
+          {/* Navigation Links */}
+          <div>
+            <h3 className="text-lg font-semibold text-gray-100 mb-4">
+              Quick Links
+            </h3>
+            <ul className="space-y-2">
               <li>
-                <a href="#cases" className="hover:underline">Cases Analysis</a>
+                <a
+                  href="/"
+                  className="hover:text-gray-50 transition-colors duration-200"
+                >
+                  Home
+                </a>
               </li>
               <li>
-                <a href="#about" className="hover:underline">About Us</a>
+                <a
+                  href="#about"
+                  className="hover:text-gray-50 transition-colors duration-200"
+                >
+                  About Us
+                </a>
               </li>
               <li>
-                <a href="#contact" className="hover:underline">Contact</a>
+                <a
+                  href="#cases"
+                  className="hover:text-gray-50 transition-colors duration-200"
+                >
+                  Crime Stats
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#contact"
+                  className="hover:text-gray-50 transition-colors duration-200"
+                >
+                  Contact
+                </a>
               </li>
             </ul>
           </div>
 
-          {/* Contact Us Section */}
-          <div className="mb-4 md:mb-0">
-            <h5 className="text-lg font-bold">Contact Us</h5>
-            <p className="text-sm">Email: support@satark.com</p>
-            <p className="text-sm">Phone: +1 (234) 567-890</p>
+          {/* Social Icons */}
+          <div>
+            <h3 className="text-lg font-semibold text-gray-100 mb-4">
+              Follow Us
+            </h3>
+            <div className="flex justify-center md:justify-start space-x-6">
+              <a
+                href="https://facebook.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-blue-500 transition-colors duration-200"
+              >
+                <i className="fab fa-facebook-f text-2xl"></i>
+              </a>
+              <a
+                href="https://twitter.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-blue-400 transition-colors duration-200"
+              >
+                <i className="fab fa-twitter text-2xl"></i>
+              </a>
+              <a
+                href="https://linkedin.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-blue-300 transition-colors duration-200"
+              >
+                <i className="fab fa-linkedin-in text-2xl"></i>
+              </a>
+              <a
+                href="https://instagram.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-pink-500 transition-colors duration-200"
+              >
+                <i className="fab fa-instagram text-2xl"></i>
+              </a>
+            </div>
           </div>
         </div>
 
-        {/* Footer Copyright */}
-        <div className="text-center mt-4 border-t border-gray-600 pt-4">
-          <p className="text-sm">&copy; {new Date().getFullYear()} Satark. All rights reserved.</p>
+        <div className="mt-8 border-t border-gray-600 pt-4 text-center text-sm">
+          <p>&copy; 2024 Satark. All rights reserved.</p>
         </div>
       </div>
     </footer>

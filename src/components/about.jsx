@@ -1,12 +1,9 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState } from 'react';
 import gif1 from "../assets/img/project.gif";
 import staticImage from "../assets/img/download.jpg"; // Add a static image preview if needed
 
 const About = () => {
   const [showGif, setShowGif] = useState(false); // Manage GIF visibility
-  const [showText, setShowText] = useState(false); // Manage scroll animation for text
-
-  const textRef = useRef(null); // Reference for the text to animate
 
   const handlePlayButtonClick = () => {
     setShowGif(true); // Show the GIF when the play button is clicked
@@ -16,39 +13,16 @@ const About = () => {
     setShowGif(false); // Hide the GIF when the stop button is clicked
   };
 
-  useEffect(() => {
-    const currentTextRef = textRef.current; // Save the current ref value
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const entry = entries[0];
-        setShowText(entry.isIntersecting);
-      },
-      {
-        threshold: 0.2, // Trigger animation when 20% of the section is visible
-      }
-    );
-    
-    if (currentTextRef) {
-      observer.observe(currentTextRef);
-    }
-
-    return () => {
-      if (currentTextRef) {
-        observer.unobserve(currentTextRef);
-      }
-    };
-  }, []);
-
   return (
-    <div className="bg-gradient-to-b from-gray-900 to-gray-800 text-gray-200 py-16" id="about">
+    <div className="bg-gradient-to-b from-gray-800 to-gray-900 text-gray-200 py-16" id="about">
       <div className="max-w-[1340px] m-auto px-4">
         <h2 className="text-center text-blue-300 font-bold text-5xl mb-8">About Us</h2>
-        <p className={`text-center text-lg mb-6 ${showText ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'} transition-all duration-700`} ref={textRef}>
+        <p className="text-center text-lg mb-6">
           At Satark, we believe that safety is a fundamental right. Our mission is to empower communities through advanced technology and real-time surveillance, ensuring that potential threats are detected and managed proactively.
         </p>
         
         {/* New Tagline */}
-        <p className={`text-center text-xl italic text-blue-300 mb-8 ${showText ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'} transition-all duration-700 delay-200`} ref={textRef}>
+        <p className="text-center text-xl italic text-blue-300 mb-8">
           With Satark, you are never alone in safeguarding yourself and your community.
         </p>
         
@@ -62,12 +36,11 @@ const About = () => {
                   <img
                     src={gif1} // Use GIF directly for a more engaging view
                     alt="Satark Working Demo"
-                    className="rounded-lg"
-                    style={{ maxWidth: '800px', height: 'auto' }} // Set a fixed width for smaller size
+                    className="rounded-lg max-w-80 h-auto"
                   />
                   <button
                     onClick={handleStopButtonClick}
-                    className="mt-4 bg-red-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-red-600 transition duration-200"
+                    className="design-btn mt-4 bg-red-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-red-600 transition duration-200"
                   >
                     ■ Stop
                   </button>
@@ -82,7 +55,7 @@ const About = () => {
                   />
                   <button
                     onClick={handlePlayButtonClick}
-                    className="mt-4 bg-blue-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-blue-600 transition duration-200"
+                    className="design-btn mt-4 bg-blue-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-blue-600 transition duration-200"
                   >
                     ▶ Play
                   </button>

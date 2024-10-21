@@ -22,7 +22,7 @@
     @apply p-4 text-sm;
   }
 
-  button {
+  .design-btn {
     @apply px-4 py-2 border bg-gradient-to-r from-[var(--primary-dark)] to-[var(--primary-light)] text-white rounded-xl;
   }
 
@@ -37,4 +37,18 @@ input{
   border-radius: 12px;
   margin-top: 6px;
   margin-bottom: 6px;
+}
+
+#spinLoader {
+  border-top-color: transparent;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }

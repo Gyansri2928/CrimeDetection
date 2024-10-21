@@ -1,160 +1,127 @@
-import React, { useEffect, useRef } from 'react';
-import { AiFillMail, AiFillGithub, AiFillLinkedin } from 'react-icons/ai';
-import image1 from '/home/gian/Documents/crimedetect/src/assets/img/01.jpeg';
-import image2 from '/home/gian/Documents/crimedetect/src/assets/img/02.jpeg';
-import image3 from '/home/gian/Documents/crimedetect/src/assets/img/03.jpeg';
-import image4 from '/home/gian/Documents/crimedetect/src/assets/img/04.jpeg';
-import image5 from '/home/gian/Documents/crimedetect/src/assets/img/05.jpeg';
-import groupImage from '/home/gian/Documents/crimedetect/src/assets/img/group.jpeg';
-import '/home/gian/Documents/crimedetect/src/socialmedia.css';
+import React from "react";
+import { AiFillMail, AiFillGithub, AiFillLinkedin } from "react-icons/ai";
+import image1 from "../assets/img/01.jpeg";
+import image2 from "../assets/img/02.jpeg";
+import image3 from "../assets/img/03.jpeg";
+import image4 from "../assets/img/04.jpeg";
+import image5 from "../assets/img/05.jpeg";
+import groupImage from "../assets/img/grp_photo.jpg";
+import "../assets/css/socialmedia.css";
 
 const SocialMediaSection = () => {
   const teamData = [
     {
-      name: 'Priyanshu',
+      name: "Priyanshu Tiwari",
+      role: "Backend Engineer",
       image: image1,
-      email: 'priyanshu.tiwari090@gmail.com',
-      github: 'https://github.com/priyanshu',
-      linkedin: 'https://linkedin.com/priyanshu',
+      email: "priyanshu.tiwari090@gmail.com",
+      github: "https://github.com/priyanshu",
+      linkedin: "https://linkedin.com/priyanshu",
     },
     {
-      name: 'Srijan',
+      name: "Srijan Pratap Singh",
+      role: "Software Tester",
       image: image2,
-      email: 'srijansraikwar@gmail.com',
-      github: 'https://github.com/srijan',
-      linkedin: 'https://linkedin.com/priyanshu',
+      email: "srijansraikwar@gmail.com",
+      github: "https://github.com/srijan",
+      linkedin: "https://linkedin.com/priyanshu",
     },
     {
-      name: 'Karan',
+      name: "Karan Singh Manral",
+      role: "Full Stack Engineer",
       image: image3,
-      email: 'karanmanral29@gmail.com',
-      github: 'https://github.com/karanmanral',
-      linkedin: 'https://linkedin.com/in/karanmanral29'
+      email: "karanmanral29@gmail.com",
+      github: "https://github.com/karanmanral",
+      linkedin: "https://linkedin.com/in/karanmanral29",
     },
     {
-      name: 'Nikhil',
+      name: "Nikhil Yadav",
+      role: "Data Engineer",
       image: image4,
-      email: 'ynikhil4232@gmail.com',
-      github: 'https://github.com/nikhil',
-      linkedin: 'https://linkedin.com/priyanshu',
+      email: "ynikhil4232@gmail.com",
+      github: "https://github.com/nikhil",
+      linkedin: "https://linkedin.com/priyanshu",
     },
     {
-      name: 'Gyan',
+      name: "Gyan Sagar Srivastava",
+      role: "Frontend Developer",
       image: image5,
-      email: 'gyansri28@gmail.com',
-      github: 'https://github.com/gyan',
-      linkedin: 'https://linkedin.com/priyanshu',
+      email: "gyansri28@gmail.com",
+      github: "https://github.com/gyan",
+      linkedin: "https://linkedin.com/priyanshu",
     },
   ];
 
-  const teamRefs = useRef([]);
-
-  useEffect(() => {
-    const options = {
-      root: null,
-      rootMargin: '0px',
-      threshold: 0.1,
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('fade-in');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, options);
-
-    teamRefs.current.forEach((ref) => {
-      if (ref) observer.observe(ref);
-    });
-
-    return () => {
-      observer.disconnect();
-    };
-  }, []);
-
   return (
-    <div className="team-area pt-120 pb-80 bg-gradient-to-r from-blue-500 via-purple-500 to-blue-900 bg-[length:400%_400%] animate-gradient-x">
-      <div className="container">
-        <div className="row">
-          <div className="col-lg-6 mx-auto">
-            <div className="site-heading text-center">
-              <h2 className="site-title">
-                Meet With Our <span className="highlight">Expert</span> Team
-              </h2>
-              <div className="flex justify-center mt-4 mb-4">
-                <div className="relative rounded-lg shadow-lg overflow-hidden transition-shadow duration-300 border border-blue-500 max-w-lg w-full bg-gradient-to-r from-blue-500 via-blue-300 to-blue-500 p-1 hover:shadow-2xl hover:scale-105 transform transition-all">
-                  <div className="bg-white rounded-lg p-1">
-                    <img
-                      src={groupImage}
-                      alt="Team Group"
-                      className="w-full h-auto rounded-lg object-cover hover:opacity-95 transition-opacity duration-300"
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+    <div className="bg-gradient-to-b from-gray-950 via-gray-800 to-gray-900 py-10">
+      <div className="container mx-auto px-4">
+        <h2 className="site-title text-white text-5xl text-center mb-10">
+          Meet With Our{" "}
+          <span className="highlight underline text-blue-400 text-5xl">
+            Expert
+          </span>{" "}
+          Team
+        </h2>
 
-        {/* Decorative SVG Borders */}
-        <div className="relative">
-          <svg
-            className="absolute top-0 left-0 right-0 w-full h-full"
-            viewBox="0 0 500 150"
-            preserveAspectRatio="none"
-          >
-            <path
-              d="M0,150 C150,100 350,0 500,150 L500,00 L0,0 Z"
-              style={{ stroke: 'none', fill: '#00b3ff', opacity: 0.4 }}
-            />
-          </svg>
-        </div>
-
-        <div className="col mt-5 flex justify-around">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 place-items-center">
           {teamData.map((member, index) => (
-            <div className="row-md-6 col-lg-3 mb-4 justify-content-around" key={index}>
-              <div
-                className="team-card rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 border border-blue-500"
-                ref={(el) => (teamRefs.current[index] = el)}
-              >
-                <img
-                  src={member.image}
-                  alt={member.name}
-                  className="w-32 h-32 object-cover rounded-full mx-auto mt-4"
-                />
-                <div className="team-content text-center">
-                  <h5 className="team-name">{member.name}</h5>
-                  <div className="social-icons mt-2 flex justify-center space-x-4">
-                    <a href={`mailto:${member.email}`} target="_blank" rel="noopener noreferrer">
-                      <AiFillMail size={24} className="text-gray-800 hover:text-black" />
-                    </a>
-                    <a href={member.github} target="_blank" rel="noopener noreferrer">
-                      <AiFillGithub size={24} className="text-gray-800 hover:text-black" />
-                    </a>
-                    <a href={member.linkedin} target="_blank" rel="noopener noreferrer">
-                      <AiFillLinkedin size={24} className="text-gray-800 hover:text-black" />
-                    </a>
-                  </div>
-                </div>
+            <div
+              className="bg-gray-800 border border-gray-700 rounded-lg shadow-md p-4 w-full h-[22rem] max-w-sm lg:h-[24rem] xl:h-[22rem] cursor-pointer hover:scale-105"
+              key={index}
+            >
+              <img
+                src={member.image}
+                alt={member.name}
+                className="w-48 h-48 rounded-md mb-4 mx-auto"
+              />
+              <p className="text-white text-lg font-bold text-center">
+                {member.name}
+              </p>
+              <p className="text-gray-400 text-center">{member.role}</p>
+              <div className="social-icons mt-2 flex justify-center space-x-4">
+                <a
+                  href={`mailto:${member.email}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <AiFillMail
+                    size={24}
+                    className="text-white hover:text-black"
+                  />
+                </a>
+                <a
+                  href={member.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <AiFillGithub
+                    size={24}
+                    className="text-white hover:text-black"
+                  />
+                </a>
+                <a
+                  href={member.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <AiFillLinkedin
+                    size={24}
+                    className="text-white hover:text-black"
+                  />
+                </a>
               </div>
             </div>
           ))}
         </div>
 
-        {/* Bottom SVG Border */}
-        <div className="relative">
-          <svg
-            className="absolute bottom-19 left-5 right-0 w-full h-full"
-            viewBox="0 0 500 150"
-            preserveAspectRatio="none"
-          >
-            <path
-              d="M0,150 C150,100 350,0 500,150 L500,00 L0,0 Z"
-              style={{ stroke: 'none', fill: '#b3c7e8', opacity: 0.2 }}
-            />
-          </svg>
+        {/* Group Photo (Optional) */}
+        <div className="mt-8 flex justify-center">
+          <img
+            src={groupImage}
+            alt="Group Photo"
+            title="Our Team"
+            className="shadow-2xl max-w-full max-lg:w-full max-xl:w-2/3 w-1/2 h-auto rounded-lg"
+          />
         </div>
       </div>
     </div>
