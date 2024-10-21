@@ -1,13 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Ri24HoursFill } from "react-icons/ri";
 import {
-  FaFacebookF,
-  FaTwitter,
-  FaInstagram,
-  FaLinkedin,
   FaPhoneAlt,
-  FaMapMarkerAlt,
-  FaEnvelope,
   FaSearch,
   FaBars,
   FaTimes,
@@ -24,7 +18,7 @@ const Navbar = () => {
     <div className={`sticky top-0 bg-gray-800 shadow-lg py-3 w-full h-16 z-50`}>
       <div className="container max-w-[1140px] mx-auto flex justify-between items-center">
         {/* Logo */}
-        <div className="flex items-center">
+        <div className="flex items-center ml-10">
           <Ri24HoursFill size={30} className="mr-2 text-blue-400" />
           <h1 className="text-2xl font-bold text-white">
             <span className="text-white">Sat</span>
@@ -33,7 +27,7 @@ const Navbar = () => {
         </div>
 
         {/* Navigation Links for Desktop */}
-        <div className="hidden md:flex items-center space-x-6">
+        <div className="hidden lg:flex items-center space-x-6">
           <a
             href="/"
             className="text-gray-200 hover:text-blue-400 transition-all duration-300"
@@ -56,7 +50,13 @@ const Navbar = () => {
             href="#crime"
             className="text-gray-200 hover:text-blue-400 transition-all duration-300"
           >
-            Crime
+            Crimes
+          </a>
+          <a
+            href="#reviews"
+            className="text-gray-200 hover:text-blue-400 transition-all duration-300"
+          >
+            Reviews
           </a>
           <a
             href="/detect_criminal"
@@ -70,13 +70,13 @@ const Navbar = () => {
         {/* Mobile Menu Button */}
         <button
           onClick={toggleMenu}
-          className="md:hidden text-gray-200 focus:outline-none"
+          className="lg:hidden text-gray-200 focus:outline-none mr-10"
         >
           {isOpen ? <FaTimes /> : <FaBars />}
         </button>
 
         {/* Emergency Call Button */}
-        <div className="hidden md:flex items-center">
+        <div className="hidden lg:flex items-center">
           <button className="design-btn flex items-center bg-blue-600 text-white px-4 py-2 rounded-lg transition-all duration-300 hover:bg-blue-500">
             <FaPhoneAlt className="mr-2" />
             <p className="text-sm">1-888-817-1234</p>
@@ -85,7 +85,7 @@ const Navbar = () => {
 
         {/* Mobile Navigation Menu */}
         {isOpen && (
-          <div className="absolute top-16 left-0 w-full bg-gray-800 p-4 md:hidden">
+          <div className="absolute top-16 left-0 w-full bg-gray-800 p-4 lg:hidden">
             <a
               href="/"
               className="block text-gray-200 hover:text-blue-400 transition-all duration-300"

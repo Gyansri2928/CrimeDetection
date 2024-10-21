@@ -6,7 +6,6 @@ import image3 from "../assets/img/03.jpeg";
 import image4 from "../assets/img/04.jpeg";
 import image5 from "../assets/img/05.jpeg";
 import groupImage from "../assets/img/grp_photo.jpg";
-import "../assets/css/socialmedia.css";
 
 const SocialMediaSection = () => {
   const teamData = [

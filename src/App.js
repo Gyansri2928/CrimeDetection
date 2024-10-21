@@ -8,6 +8,7 @@ import Cases from './components/cases';
 import Footer from './components/footer';
 import SocialMediaSection from './components/socialmedia';
 import DetectCriminal from "./components/detectFace"
+import Reviews from "./components/review";
 
 import {createBrowserRouter,RouterProvider} from "react-router-dom";
 
@@ -20,6 +21,7 @@ const router = createBrowserRouter([
       <Cases/>
       <About/>
       <Crime/>
+      <Reviews />
       <SocialMediaSection/>
       <Footer/>
     </>

@@ -35,19 +35,19 @@ const Hero = () => {
     const liveContainer = document.getElementById("liveContainer");
     document.getElementById("fade").classList.toggle("hidden");
     document.getElementById("fade").classList.toggle("fixed");
+    liveContainer.classList.toggle("lg:absolute");
     liveContainer.classList.toggle("fixed");
     liveContainer.classList.toggle("top-[12%]");
     liveContainer.classList.toggle("left-1/2");
     liveContainer.classList.toggle("-translate-x-1/2");
-    liveContainer.classList.toggle("-translate-y-[12%]");
-    liveContainer.classList.toggle("w-[80%]");
-    liveContainer.classList.toggle("h-[80%]");
+    liveContainer.classList.toggle("w-[80vw]");
+    liveContainer.classList.toggle("h-[80vh]");
   };
 
   return (
     <>
       <div
-        className="fade hidden top-0 left-0 w-full h-full z-10 bg-black opacity-80"
+        className="fade hidden top-0 left-0 w-full h-full z-[60] bg-black opacity-80"
         id="fade"
       ></div>
       <div className="w-full py-10 h-auto relative bg-hero-bg bg-cover flex-wrap px-12">
@@ -150,7 +150,7 @@ const Hero = () => {
 
         {/* Camera Access Box */}
         <div
-          className={`max-md:w-[90vw] max-lg:w-[600px] w-[450px] lg:absolute lg:right-10 lg:top-20 m-auto  min-w-96 min-h-80 border-4 border-white bg-gray-800 bg-opacity-100 shadow-lg p-6 flex flex-col items-center justify-between rounded-lg z-20`}
+          className={`max-md:w-[90%] max-lg:w-[600px] w-[450px] lg:absolute lg:right-10 lg:top-20 m-auto md:min-w-96 min-h-80 border-4 border-white bg-gray-800 bg-opacity-100 shadow-lg p-6 flex flex-col items-center justify-between rounded-lg z-[70]`}
           id="liveContainer"
         >
           {isCameraActive ? (
